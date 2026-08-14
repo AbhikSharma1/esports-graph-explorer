@@ -11,14 +11,16 @@ const PORT = process.env.PORT || 4000;
 // Allow requests from the frontend — in production this is the Vercel URL
 const allowedOrigins = [
   "http://localhost:5173",
+  "http://localhost:4173", // vite preview
   process.env.FRONTEND_URL,
 ].filter(Boolean);
 
 app.use(cors({
   origin: (origin, cb) => {
-    // Allow requests with no origin (curl, Postman, server-to-server)
+    // Allow requests with no origin (curl, Postman, Render health checks)
     if (!origin) return cb(null, true);
-    if (allowedOrigins.some((o) => origin.startsWith(o))) return cb(null, true);
+    // Exact match — avoids prefix-spoofing attacks
+    if (allowedOrigins.includes(origin)) return cb(null, true);
     cb(new Error(`CORS blocked: ${origin}`));
   },
   credentials: true,
