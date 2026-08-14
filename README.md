@@ -496,7 +496,7 @@ curl "http://localhost:4000/api/graph/player/Alex%20Rivera"
 
 **Main Graph Canvas**
 
-![Graph Canvas](<img width="959" height="410" alt="image" src="https://github.com/user-attachments/assets/51f87a14-bb0e-4a9a-9f38-7b960b16a7c0" />
+![Graph Canvas](https://github.com/user-attachments/assets/51f87a14-bb0e-4a9a-9f38-7b960b16a7c0)
 )
 *Force-directed graph showing all players, teams, tournaments, and game roles with color-coded nodes.*
 
