@@ -8,7 +8,21 @@ const graphRoutes = require("./routes/graph");
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(cors());
+// Allow requests from the frontend — in production this is the Vercel URL
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
+app.use(cors({
+  origin: (origin, cb) => {
+    // Allow requests with no origin (curl, Postman, server-to-server)
+    if (!origin) return cb(null, true);
+    if (allowedOrigins.some((o) => origin.startsWith(o))) return cb(null, true);
+    cb(new Error(`CORS blocked: ${origin}`));
+  },
+  credentials: true,
+}));
 app.use(express.json());
 
 // All graph-related endpoints live under /api/graph

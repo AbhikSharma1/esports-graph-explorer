@@ -11,9 +11,11 @@ frontend/dist/
 .DS_Store
 Thumbs.db
 
-# Logs
+# Logs and temp test files
 *.log
+*.json.bak
 backend/server.log
+backend/server_test.log
 backend/test.json
 backend/response.json
 backend/proxy_test.json
