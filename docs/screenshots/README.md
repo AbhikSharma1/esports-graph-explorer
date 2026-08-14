@@ -1,9 +1,5 @@
-# Screenshots
+<img width="951" height="404" alt="image" src="https://github.com/user-attachments/assets/9567da1d-d4b1-4a0b-b4aa-c7814d59902e" />
 
-Place your UI screenshots here before submitting.
-
-Required files:
-- `graph-canvas.png`   — Main force-directed graph view
 - `player-panel.png`   — Player detail side panel
 - `rivals-tab.png`     — Rivals tab showing multi-hop results
 - `scrim-network.png`  — Scrim synergy network panel
