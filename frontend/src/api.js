@@ -1,6 +1,10 @@
 // Central place for all backend calls — keeps components clean
 
-const BASE = `${import.meta.env.VITE_API_URL || ""}/api/graph`;
+// Strips trailing slash so VITE_API_URL with or without trailing slash both work.
+// In local dev (VITE_API_URL unset), BASE = "/api/graph" → Vite proxy handles it.
+// In production, BASE = "https://your-backend.com/api/graph".
+const _origin = (import.meta.env.VITE_API_URL ?? "").replace(/\/+$/, "");
+const BASE = `${_origin}/api/graph`;
 
 async function get(url) {
   const res = await fetch(url);
