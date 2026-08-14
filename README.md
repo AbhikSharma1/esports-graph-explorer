@@ -497,27 +497,31 @@ curl "http://localhost:4000/api/graph/player/Alex%20Rivera"
 **Main Graph Canvas**
 
 ![Graph Canvas](https://github.com/user-attachments/assets/51f87a14-bb0e-4a9a-9f38-7b960b16a7c0)
-)
+
 *Force-directed graph showing all players, teams, tournaments, and game roles with color-coded nodes.*
 
 **Player Detail Panel**
 
-![Player Panel](./docs/screenshots/player-panel.png)
+![Player Panel](https://github.com/user-attachments/assets/3daf0167-e921-4094-a011-9000cddff4d0)
+
 *Side panel showing player stats, win rate bar, current team, and tournament history.*
 
 **Rival Teams Analysis**
 
-![Rivals Tab](./docs/screenshots/rivals-tab.png)
+![Rivals Tab](https://github.com/user-attachments/assets/76d0bb45-36cd-4f3f-b959-0cadaced0848)
+
 *Multi-hop rival detection — teams that competed in the same tournaments, grouped by event.*
 
 **Scrim Network**
 
-![Scrim Network](./docs/screenshots/scrim-network.png)
+![Scrim Network](https://github.com/user-attachments/assets/678bac3f-b199-4bfa-88f3-ade3e8201b4d)
+
 *2nd-degree scrim synergy — direct partners and their partners, with match intensity badges.*
 
 **Search**
 
-![Search](./docs/screenshots/search.png)
+![Search](https://github.com/user-attachments/assets/c7ff9bf1-2b5b-4c83-beee-189b4cc7343d)
+
 *Debounced live search across players, teams, and tournaments with type-labeled results.*
 
 ---
