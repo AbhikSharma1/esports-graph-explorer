@@ -1,6 +1,6 @@
 // Central place for all backend calls — keeps components clean
 
-const BASE = "/api/graph";
+const BASE = `${import.meta.env.VITE_API_URL || ""}/api/graph`;
 
 async function get(url) {
   const res = await fetch(url);
