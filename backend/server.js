@@ -8,23 +8,36 @@ const graphRoutes = require("./routes/graph");
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// Allow requests from the frontend — in production this is the Vercel URL
+// Allow requests from localhost, configured env, and production Vercel domain
 const allowedOrigins = [
   "http://localhost:5173",
-  "http://localhost:4173", // vite preview
-  process.env.FRONTEND_URL,
+  "http://localhost:4173",
+  "https://esports-graph-explorer.vercel.app",
+  process.env.FRONTEND_URL ? process.env.FRONTEND_URL.replace(/\/+$/, "") : null,
 ].filter(Boolean);
 
-app.use(cors({
-  origin: (origin, cb) => {
-    // Allow requests with no origin (curl, Postman, Render health checks)
-    if (!origin) return cb(null, true);
-    // Exact match — avoids prefix-spoofing attacks
-    if (allowedOrigins.includes(origin)) return cb(null, true);
-    cb(new Error(`CORS blocked: ${origin}`));
-  },
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: (origin, cb) => {
+      // Allow requests with no origin (curl, Postman, Render health checks)
+      if (!origin) return cb(null, true);
+
+      const normalizedOrigin = origin.replace(/\/+$/, "");
+
+      // Allow if exact match OR if it's any Vercel preview/production deployment
+      if (
+        allowedOrigins.includes(normalizedOrigin) ||
+        normalizedOrigin.endsWith(".vercel.app")
+      ) {
+        return cb(null, true);
+      }
+
+      cb(new Error(`CORS blocked: ${origin}`));
+    },
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 // All graph-related endpoints live under /api/graph

@@ -1,9 +1,13 @@
 // Central place for all backend calls — keeps components clean
 
-// Strips trailing slash so VITE_API_URL with or without trailing slash both work.
-// In local dev (VITE_API_URL unset), BASE = "/api/graph" → Vite proxy handles it.
-// In production, BASE = "https://your-backend.com/api/graph".
-const _origin = (import.meta.env.VITE_API_URL ?? "").replace(/\/+$/, "");
+// In production, uses the live Render backend URL. In local dev (unset), falls back to empty string for Vite proxy.
+const _rawOrigin = import.meta.env.VITE_API_URL || "https://esports-graph-backend.onrender.com";
+
+// Sanitize origin: remove Markdown wrappers, brackets, and trailing slashes
+const _origin = _rawOrigin
+  .replace(/[\[\]\(\)]/g, "")
+  .replace(/\/+$/, "");
+
 const BASE = `${_origin}/api/graph`;
 
 async function get(url) {
