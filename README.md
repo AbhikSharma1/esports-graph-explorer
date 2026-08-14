@@ -11,7 +11,7 @@ Built as a take-home assessment for **Wexa AI**, this project demonstrates how g
 | | Link |
 |---|---|
 | 🌐 **Hosted App** | [View on Vercel](#) *(https://esports-graph-explorer.vercel.app/)* |
-| 🎥 **Video Walkthrough** | [Watch on Loom](#) *(placeholder — add your Loom/Drive link)* |
+| 🎥 **Video Walkthrough** | [Watch on Loom](#) *(https://drive.google.com/file/d/1ZF20PI1N2HmhFb0n84cyZhbGP4kI_3UZ/view?usp=sharing)* |
 
 ---
 
